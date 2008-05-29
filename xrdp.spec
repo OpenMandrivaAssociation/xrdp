@@ -1,11 +1,12 @@
 Summary:	Open source remote desktop protocol (RDP) server
 Name:		xrdp
 Version:	0.4.0
-Release:	%mkrel 0.2
+Release:	%mkrel 0.3
 License:	GPL
 Group:		System/Servers
 URL:		http://xrdp.sourceforge.net/
 Source0:	http://dl.sf.net/xrdp/xrdp-%{version}.tar.gz
+Source1:	xrdp.init
 Patch0:		xrdp-0.4.0-sesman.patch
 Patch1:		xrdp-0.4.0-sesmantools.patch
 Patch2:		xrdp-0.4.0-docs.patch
@@ -32,7 +33,11 @@ terminal server / remote desktop clients.
 %patch3 -p1
 %patch4 -p1
 
-%{__perl} -pi.orig -e 's|/lib\b|/%{_lib}|g' Makefile */Makefile
+
+cp %{SOURCE1} xrdp.init
+
+perl -pi -e 's|/lib\b|/%{_lib}|g' Makefile */Makefile
+perl -pi -e "s|\@libexecdir\@|%{_libdir}/xrdp|g" xrdp.init
 
 %build
 %serverbuild
@@ -46,18 +51,13 @@ make installdeb DESTDIRDEB="%{buildroot}"
 install -Dp -m0755 sesman/libscp/libscp.so %{buildroot}%{_libdir}/xrdp/libscp.so
 
 install -d %{buildroot}%{_initrddir}
-mv %{buildroot}%{_sysconfdir}/init.d/xrdp_control.sh %{buildroot}%{_initrddir}/xrdp
-perl -pi -e "s|XRDP_DIR=.*|XRDP_DIR=%{_libdir}/xrdp/|g" %{buildroot}%{_initrddir}/xrdp
+install -m0755 xrdp.init %{buildroot}%{_initrddir}/xrdp
 
-install -d %{buildroot}%{_sysconfdir}/ld.so.conf.d/
-echo "%{_libdir}/xrdp" > %{buildroot}%{_sysconfdir}/ld.so.conf.d/xrdp.conf
+# cleanup 
+rm -rf %{buildroot}%{_sysconfdir}/init.d
 
 %post
 %_post_service xrdp
-/sbin/ldconfig
-
-%postun
-/sbin/ldconfig
 
 %preun
 %_preun_service xrdp
@@ -72,7 +72,6 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/xrdp
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/xrdp/*
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/pam.d/sesman
-%{_sysconfdir}/ld.so.conf.d/xrdp.conf
 %dir %{_libdir}/xrdp
 %attr(0755,root,root) %{_libdir}/xrdp/*.so
 %attr(0644,root,root) %{_libdir}/xrdp/ad256.bmp
