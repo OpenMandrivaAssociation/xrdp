@@ -4,7 +4,7 @@
 Summary:	Open source remote desktop protocol (RDP) server
 Name:		xrdp
 Version:	0.4.0
-Release:	%mkrel 0.5
+Release:	%mkrel 6.5
 License:	GPL
 Group:		System/Servers
 URL:		http://xrdp.sourceforge.net/
