@@ -3,8 +3,8 @@
 
 Summary:	Open source remote desktop protocol (RDP) server
 Name:		xrdp
-Version:	0.4.0
-Release:	%mkrel 6.5
+Version:	0.4.1
+Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://xrdp.sourceforge.net/
@@ -134,7 +134,7 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root,-)
-%attr(0755,root,root) %{_libdir}/lib*.so.*
+%attr(0755,root,root) %{_libdir}/lib*.so.%{major}*
 
 %files
 %defattr(-,root,root)
