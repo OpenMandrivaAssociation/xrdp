@@ -4,7 +4,7 @@
 Summary:	Open source remote desktop protocol (RDP) server
 Name:		xrdp
 Version:	0.4.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		System/Servers
 URL:		http://xrdp.sourceforge.net/
@@ -20,6 +20,7 @@ Patch4:		xrdp-no_rpath.diff
 Patch5:		xrdp-mdv_conf.diff
 Patch6:		xrdp-window_managers.diff
 Patch7:		xrdp-0.4.0-mdv_libifictions.diff
+Patch8:		xrdp-0.4.1-wformat_fix.diff
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 BuildRequires:	pam-devel
@@ -54,6 +55,7 @@ This package contains the shared libraries and plugins for xrdp.
 %patch5 -p0
 %patch6 -p0
 %patch7 -p1
+%patch8 -p0
 
 cp %{SOURCE1} xrdp.init
 cp %{SOURCE2} xrdp.logrotate
