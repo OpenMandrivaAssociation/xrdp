@@ -21,6 +21,7 @@ Patch5:		xrdp-mdv_conf.diff
 Patch6:		xrdp-window_managers.diff
 Patch7:		xrdp-0.4.0-mdv_libifictions.diff
 Patch8:		xrdp-0.4.1-wformat_fix.diff
+Patch9:		xrdp-0.4.1-fix-link.patch
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 BuildRequires:	pam-devel
@@ -44,9 +45,7 @@ terminal server / remote desktop clients.
 This package contains the shared libraries and plugins for xrdp.
 
 %prep
-
 %setup -q
-
 %patch0
 %patch1
 %patch2
@@ -56,6 +55,7 @@ This package contains the shared libraries and plugins for xrdp.
 %patch6 -p0
 %patch7 -p1
 %patch8 -p0
+%patch9 -p0 -b .link
 
 cp %{SOURCE1} xrdp.init
 cp %{SOURCE2} xrdp.logrotate
@@ -147,7 +147,6 @@ rm -rf %{buildroot}
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/pam.d/sesman
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/logrotate.d/xrdp
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/sysconfig/xrdp
-%attr(0755,root,root) %{_sbindir}/sesman
 %attr(0755,root,root) %{_sbindir}/sesman
 %attr(0755,root,root) %{_sbindir}/sesrun
 %attr(0755,root,root) %{_sbindir}/sessvc
