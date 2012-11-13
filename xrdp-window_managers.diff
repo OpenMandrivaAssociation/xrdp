@@ -1,0 +1,15 @@
+--- sesman/startwm.sh	2006-08-14 06:57:43.000000000 +0200
++++ sesman/startwm.sh.oden	2008-06-02 09:27:45.000000000 +0200
+@@ -28,6 +28,12 @@
+   exit 0
+ fi
+ 
++# icewm
++if [ "'which starticewm'" != "" ]; then
++  starticewm
++  exit 0
++fi
++
+ # blackbox
+ #if [ "'which blackbox'" != "" ]; then
+ #  blackbox

@@ -1,0 +1,5 @@
+sources:
+  "xrdp-0.4.1.tar.gz:"	bbe320c049c47c28d3250627ad72481215a8763e
+  "xrdp.init:"	ec1da300a48647ac0d5cb320340e650036716555
+  "xrdp.logrotate:"	96ad7610aecfd95ba557ebdb855faa46b29f481e
+  "xrdp.sysconfig:"	0b7573c5cd20cd3448e0e313d8c8557cfee322f6

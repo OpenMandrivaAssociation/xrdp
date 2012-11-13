@@ -1,0 +1,22 @@
+--- sesman/sesman.ini	2007-04-07 18:20:08.000000000 +0200
++++ sesman/sesman.ini.oden	2008-06-02 09:17:01.000000000 +0200
+@@ -2,8 +2,8 @@
+ ListenAddress=127.0.0.1
+ ListenPort=3350
+ EnableUserWindowManager=1
+-UserWindowManager=startwm.sh
+-DefaultWindowManager=startwm.sh
++UserWindowManager=/usr/sbin/xrdp-startwm
++DefaultWindowManager=/usr/sbin/xrdp-startwm
+ 
+ [Security]
+ AllowRootLogin=1
+@@ -18,7 +18,7 @@
+ DisconnectedTimeLimit=0
+ 
+ [Logging]
+-LogFile=./sesman.log
++LogFile=/var/log/xrdp/sesman.log
+ LogLevel=DEBUG
+ EnableSyslog=0
+ SyslogLevel=DEBUG

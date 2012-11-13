@@ -1,0 +1,11 @@
+--- common/log.c	2007-02-03 07:21:58.000000000 +0100
++++ common/log.c.oden	2009-08-26 14:35:48.000000000 +0200
+@@ -172,7 +172,7 @@ log_message(const unsigned int lvl, cons
+   if (l_cfg->enable_syslog  && (lvl <= l_cfg->log_level))
+   {
+     /* log to syslog */
+-    syslog(log_xrdp2syslog(lvl), buff + 20);
++    syslog("%s", log_xrdp2syslog(lvl), buff + 20);
+   }
+ 
+   if (lvl <= l_cfg->log_level)
