@@ -163,3 +163,55 @@ rm -rf %{buildroot}
 %ghost /var/log/xrdp/sesman.log
 %attr(0644,root,root) %{_mandir}/man5/*
 %attr(0644,root,root) %{_mandir}/man8/*
+
+
+%changelog
+* Wed Dec 08 2010 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-5mdv2011.0
++ Revision: 615733
+- the mass rebuild of 2010.1 packages
+
+* Mon Apr 19 2010 Funda Wang <fwang@mandriva.org> 0.4.1-4mdv2010.1
++ Revision: 536652
+- bump rel
+- fix link
+
+* Mon Apr 19 2010 Funda Wang <fwang@mandriva.org> 0.4.1-3mdv2010.1
++ Revision: 536635
+- rebuild
+
+* Wed Aug 26 2009 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-2mdv2010.0
++ Revision: 421521
+- fix build with -Werror=format-security
+
+* Sun Sep 07 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.1-1mdv2009.0
++ Revision: 282318
+- 0.4.1
+
+* Sat Aug 09 2008 Thierry Vignaud <tv@mandriva.org> 0.4.0-6.5mdv2009.0
++ Revision: 269840
+- rebuild early 2009.0 package (before pixel changes)
+
+* Tue Jun 03 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.5mdv2009.0
++ Revision: 214767
+- another approach at fixing it...
+
+* Mon Jun 02 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.4mdv2009.0
++ Revision: 214245
+- added more fixes
+
+* Thu May 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.3mdv2009.0
++ Revision: 213143
+- replaced the ldconfig hack with another hack in the new initscript :)
+
+* Thu May 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.2mdv2009.0
++ Revision: 213053
+- instead of rpath use a ldconfig file
+- use a temporary initscript
+
+* Thu May 15 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.1mdv2009.0
++ Revision: 207658
+- import xrdp
+
+
+* Thu May 15 2008 Oden Eriksson <oeriksson@mandriva.com> 0.4.0-0.1mdv2008.0
+- initial Mandriva package (dag import)

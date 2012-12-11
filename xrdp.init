@@ -1,0 +1,107 @@
+#!/bin/sh
+#
+# Startup script for xrdp
+#
+# chkconfig: 345 91 35
+# description: Open source remote desktop protocol (RDP) server
+# processname: xrdp
+# pidfile: /var/run/xrdp.pid
+# config: /etc/xrdp/xrdp.ini
+
+### BEGIN INIT INFO
+# Provides: xrdp
+# Required-Start: $network
+# Required-Stop: $network
+# Should-Start: $named 
+# Should-Stop: $named 
+# Default-Start: 3 4 5
+# Short-Description: Starts the xrdp daemon
+# Description: Open source remote desktop protocol (RDP) server
+### END INIT INFO
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 0
+
+# source the xrdp configuration
+[ -f /etc/sysconfig/xrdp ] && . /etc/sysconfig/xrdp
+
+RETVAL=0
+
+start() {
+	echo -n "Starting xrdp and sasman: "
+	cd @libexecdir@
+
+	if [ -n "`/sbin/pidof xrdp`" ]; then
+            echo "xrdp: already running"
+	    echo
+            return 1
+        fi
+	daemon xrdp ${XRDP_OPTIONS} >&/dev/null
+	RETVAL=$?
+	[ "`pidof xrdp`" -ne "0" ] && success || failure
+
+	if [ -n "`/sbin/pidof sesman`" ]; then
+            echo "sesman: already running"
+	    echo
+            return 1
+        fi
+	daemon sesman ${SESMAN_OPTIONS} >&/dev/null
+	[ "`pidof sesman`" -ne "0" ] && success || failure
+
+	echo
+	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/xrdp
+	return $RETVAL
+}
+
+stop() {
+	echo -n "Shutting down xrdp and sasman: "
+	cd @libexecdir@
+
+	xrdp --kill >&/dev/null
+	[ "`pidof xrdp`" == "0" ] && failure || success
+
+	sesman --kill >&/dev/null
+	[ "`pidof sesman`" == "0" ] && failure || success
+
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/xrdp /var/run/xrdp.pid
+	return $RETVAL
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  condrestart)
+	[ -e /var/lock/subsys/xrdp ] && restart
+	RETVAL=$?
+	;;
+  status)
+	status xrdp
+	status sesman
+	RETVAL=$?
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|reload|condrestart|status}"
+	RETVAL=1
+esac
+
+exit $RETVAL
