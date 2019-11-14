@@ -1,0 +1,43 @@
+diff -Nru a/xrdp/xrdp.ini b/xrdp/xrdp.ini
+--- a/xrdp/xrdp.ini	2018-12-25 05:49:32.000000000 +0100
++++ b/xrdp/xrdp.ini	2018-12-26 06:27:27.995493206 +0100
+@@ -172,25 +172,25 @@
+ #xserverbpp=24
+ #delay_ms=2000
+ 
+-[vnc-any]
+-name=vnc-any
+-lib=libvnc.so
+-ip=ask
+-port=ask5900
+-username=na
+-password=ask
++#[vnc-any]
++#name=vnc-any
++#lib=libvnc.so
++#ip=ask
++#port=ask5900
++#username=na
++#password=ask
+ #pamusername=asksame
+ #pampassword=asksame
+ #pamsessionmng=127.0.0.1
+ #delay_ms=2000
+ 
+-[neutrinordp-any]
+-name=neutrinordp-any
+-lib=libxrdpneutrinordp.so
+-ip=ask
+-port=ask3389
+-username=ask
+-password=ask
++#[neutrinordp-any]
++#name=neutrinordp-any
++#lib=libxrdpneutrinordp.so
++#ip=ask
++#port=ask3389
++#username=ask
++#password=ask
+ 
+ ; You can override the common channel settings for each session type
+ #channel.rdpdr=true

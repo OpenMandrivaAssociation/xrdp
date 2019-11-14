@@ -1,9 +1,6 @@
-/var/log/xrdp/sesman.log {
-    create 644 root root
+/var/log/xrdp*.log {
     daily
     compress
     missingok
-    postrotate
-	/etc/rc.d/init.d/xrdp condrestart > /dev/null 2>/dev/null || :
-    endscript
+    copytruncate
 }

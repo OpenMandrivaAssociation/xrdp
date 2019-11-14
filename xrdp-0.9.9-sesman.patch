@@ -1,0 +1,12 @@
+diff -Nru a/sesman/sesman.ini b/sesman/sesman.ini
+--- a/sesman/sesman.ini	2018-12-25 05:49:32.000000000 +0100
++++ b/sesman/sesman.ini	2018-12-26 06:21:31.333355288 +0100
+@@ -7,7 +7,7 @@
+ ; Give in relative path to user's home directory
+ UserWindowManager=startwm.sh
+ ; Give in full path or relative path to /etc/xrdp
+-DefaultWindowManager=startwm.sh
++DefaultWindowManager=startwm-bash.sh
+ ; Give in full path or relative path to /etc/xrdp
+ ReconnectScript=reconnectwm.sh
+ 

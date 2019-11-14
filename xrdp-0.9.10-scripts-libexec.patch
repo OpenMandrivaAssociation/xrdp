@@ -1,0 +1,37 @@
+diff -Nrup a/sesman/config.c b/sesman/config.c
+--- a/sesman/config.c	2019-04-18 07:38:26.000000000 +0200
++++ b/sesman/config.c	2019-04-18 14:32:25.987906549 +0200
+@@ -179,13 +179,13 @@ config_read_globals(int file, struct con
+         g_free(cf->default_wm);
+         cf->default_wm = g_strdup("startwm.sh");
+     }
+-    /* if default_wm doesn't begin with '/', it's a relative path to XRDP_CFG_PATH */
++    /* if default_wm doesn't begin with '/', it's a relative path to /usr/libexec/xrdp */
+     if (cf->default_wm[0] != '/')
+     {
+         /* sizeof operator returns string length including null terminator  */
+-        length = sizeof(XRDP_CFG_PATH) + g_strlen(cf->default_wm) + 1; /* '/' */
++        length = sizeof("/usr/libexec/xrdp") + g_strlen(cf->default_wm) + 1; /* '/' */
+         buf = (char *)g_malloc(length, 0);
+-        g_sprintf(buf, "%s/%s", XRDP_CFG_PATH, cf->default_wm);
++        g_sprintf(buf, "%s/%s", "/usr/libexec/xrdp", cf->default_wm);
+         g_free(cf->default_wm);
+         cf->default_wm = g_strdup(buf);
+         g_free(buf);
+@@ -200,13 +200,13 @@ config_read_globals(int file, struct con
+         g_free(cf->reconnect_sh);
+         cf->reconnect_sh = g_strdup("reconnectwm.sh");
+     }
+-    /* if reconnect_sh doesn't begin with '/', it's a relative path to XRDP_CFG_PATH */
++    /* if reconnect_sh doesn't begin with '/', it's a relative path to /usr/libexec/xrdp */
+     if (cf->reconnect_sh[0] != '/')
+     {
+         /* sizeof operator returns string length including null terminator  */
+-        length = sizeof(XRDP_CFG_PATH) + g_strlen(cf->reconnect_sh) + 1; /* '/' */
++        length = sizeof("/usr/libexec/xrdp") + g_strlen(cf->reconnect_sh) + 1; /* '/' */
+         buf = (char *)g_malloc(length, 0);
+-        g_sprintf(buf, "%s/%s", XRDP_CFG_PATH, cf->reconnect_sh);
++        g_sprintf(buf, "%s/%s", "/usr/libexec/xrdp", cf->reconnect_sh);
+         g_free(cf->reconnect_sh);
+         cf->reconnect_sh = g_strdup(buf);
+         g_free(buf);
