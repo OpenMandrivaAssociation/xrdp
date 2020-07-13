@@ -1,7 +1,7 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.9.11
+Version:   0.9.13.1
 Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
@@ -203,5 +203,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %files devel
 %{_includedir}/xrdp*
 %{_includedir}/rfxcodec_*.h
+%{_includedir}/ms-*
 %{_libdir}/pkgconfig/xrdp.pc
 %{_libdir}/pkgconfig/rfxcodec.pc
