@@ -203,5 +203,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %files devel
 %{_includedir}/xrdp*
 %{_includedir}/rfxcodec_*.h
+%{_includedir}/ms-*
 %{_libdir}/pkgconfig/xrdp.pc
 %{_libdir}/pkgconfig/rfxcodec.pc
