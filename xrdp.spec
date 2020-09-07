@@ -12,7 +12,7 @@ Source2:   xrdp.sysconfig
 Source3:   xrdp.logrotate
 Source4:   openssl.conf
 Patch0:    xrdp-0.9.9-sesman.patch
-Patch1:    xrdp-0.9.9-xrdp-ini.patch
+#Patch1:    xrdp-0.9.9-xrdp-ini.patch
 Patch2:    xrdp-0.9.4-service.patch
 Patch3:    xrdp-0.9.2-setpriv.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
