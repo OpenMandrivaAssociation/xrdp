@@ -1,7 +1,7 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.9.14
+Version:   0.9.16
 Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
@@ -14,7 +14,7 @@ Source4:   openssl.conf
 Patch0:    xrdp-0.9.9-sesman.patch
 Patch1:    xrdp-0.9.9-xrdp-ini.patch
 Patch2:    xrdp-0.9.4-service.patch
-Patch3:    xrdp-0.9.2-setpriv.patch
+#Patch3:    xrdp-0.9.2-setpriv.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
 Patch6:    make-fix.patch
@@ -55,6 +55,8 @@ talk to xrdp.
 
 %prep
 %autosetup -p1
+# Make OpenSSL great again
+sed -i -e 's,-Werror,-Werror -Wno-error=deprecated-declarations,g' configure.ac configure
 
 # create 'bash -l' based startwm, to pick up PATH etc.
 echo '#!/bin/bash -l
@@ -86,10 +88,10 @@ popd
                --enable-jpeg \
                --enable-tjpeg
 
-%make_build
+%make_build PAM_RULES=redhat
 
 %install
-%make_install
+%make_install PAM_RULES=redhat
 
 #remove .la and .a files
 find %{buildroot} -name '*.a' -delete

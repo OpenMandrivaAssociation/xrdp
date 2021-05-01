@@ -1,7 +1,6 @@
-Index: xrdp-0.9.6/sesman/session.c
-===================================================================
---- xrdp-0.9.6/sesman/session.c
-+++ xrdp-0.9.6/sesman/session.c	2018-04-18 13:15:16.165858818 +0200
+diff -up xrdp-0.9.16/sesman/session.c.4~ xrdp-0.9.16/sesman/session.c
+--- xrdp-0.9.16/sesman/session.c.4~	2021-04-30 14:12:07.000000000 +0200
++++ xrdp-0.9.16/sesman/session.c	2021-05-01 23:04:35.505321213 +0200
 @@ -33,10 +33,6 @@
  #include "config_ac.h"
  #endif
@@ -13,7 +12,7 @@ Index: xrdp-0.9.6/sesman/session.c
  #include "sesman.h"
  #include "libscp_types.h"
  #include "xauth.h"
-@@ -661,20 +657,7 @@
+@@ -705,22 +701,7 @@ session_start_fork(tbus data, tui8 type,
  
                  if (type == SESMAN_SESSION_TYPE_XORG)
                  {
@@ -26,16 +25,18 @@ Index: xrdp-0.9.6/sesman/session.c
 -                     */
 -                    if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) < 0)
 -                    {
--                        log_message(LOG_LEVEL_WARNING,
--                                    "Failed to disable setuid on X server: %s",
--                                    g_get_strerror());
+-                        LOG(LOG_LEVEL_WARNING,
+-                            "[session start] (display %d): Failed to disable "
+-                            "setuid on X server: %s",
+-                            display, g_get_strerror());
 -                    }
 -#endif
+-
 +                    char *setpriv = g_strdup("setpriv");
- 
                      xserver_params = list_create();
                      xserver_params->auto_free = 1;
-@@ -683,6 +666,8 @@
+ 
+@@ -728,6 +709,8 @@ session_start_fork(tbus data, tui8 type,
                      xserver = g_strdup((const char *)list_get_item(g_cfg->xorg_params, 0));
  
                      /* these are the must have parameters */
@@ -44,12 +45,12 @@ Index: xrdp-0.9.6/sesman/session.c
                      list_add_item(xserver_params, (tintptr) g_strdup(xserver));
                      list_add_item(xserver_params, (tintptr) g_strdup(screen));
                      list_add_item(xserver_params, (tintptr) g_strdup("-auth"));
-@@ -706,7 +691,7 @@
-                     g_setenv("XRDP_START_HEIGHT", geometry, 1);
- 
-                     /* fire up Xorg */
--                    g_execvp(xserver, pp1);
-+                    g_execvp(setpriv, pp1);
-                 }
-                 else if (type == SESMAN_SESSION_TYPE_XVNC)
-                 {
+@@ -821,7 +804,7 @@ session_start_fork(tbus data, tui8 type,
+                 /* fire up X server */
+                 LOG(LOG_LEVEL_INFO, "Starting X server on display %d: %s", 
+                     display, dumpItemsToString(xserver_params, execvpparams, 2048));
+-                g_execvp(xserver, pp1);
++                g_execvp(setpriv, pp1);
+                 
+                 /* should not get here */
+                 LOG(LOG_LEVEL_ERROR,
