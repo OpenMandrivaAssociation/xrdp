@@ -1,8 +1,8 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.9.16
-Release:   3
+Version:   0.10.0
+Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
 URL:       http://www.xrdp.org/
