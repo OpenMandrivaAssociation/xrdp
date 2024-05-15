@@ -17,7 +17,7 @@ Patch2:    xrdp-0.9.4-service.patch
 #Patch3:    xrdp-0.9.2-setpriv.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
-Patch6:    make-fix.patch
+#Patch6:    make-fix.patch
 
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xfixes)
