@@ -168,6 +168,9 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_sysconfdir}/xrdp/xrdp_keyboard.ini
 %{_libexecdir}/xrdp/startwm*.sh
 %{_libexecdir}/xrdp/reconnectwm.sh
+%{_libexecdir}/xrdp/waitforx
+%{_libexecdir}/xrdp/xrdp-sesexec
+%{_bindir}/xrdp-dumpfv1
 %{_bindir}/xrdp-genkeymap
 %{_bindir}/xrdp-sesadmin
 %{_bindir}/xrdp-keygen
@@ -184,12 +187,18 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_datadir}/xrdp/ad24b.bmp
 %{_datadir}/xrdp/xrdp24b.bmp
 %{_datadir}/xrdp/xrdp_logo.bmp
+%{_datadir}/xrdp/README.logo
+%{_datadir}/xrdp/sans-18.fv1
+%{_datadir}/xrdp/xrdp_logo.png
 %{_mandir}/man5/*
 %{_mandir}/man8/*
 %{_mandir}/man1/*
 #% {_libdir}/lib*.so.*
 %{_libdir}/xrdp/lib*.so.*
 %{_libdir}/xrdp/libmc.so
+%{_libdir}/xrdp/libtoml.so
+%{_libdir}/xrdp/libipm.so*
+%{_libdir}/xrdp/libsesman.so
 %{_libdir}/xrdp/libvnc.so
 %{_libdir}/xrdp/libxup.so
 %{_sysconfdir}/xrdp/pulse/default.pa
