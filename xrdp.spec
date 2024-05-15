@@ -197,7 +197,7 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_libdir}/xrdp/lib*.so.*
 %{_libdir}/xrdp/libmc.so
 %{_libdir}/xrdp/libtoml.so
-%{_libdir}/xrdp/libipm.so*
+%{_libdir}/xrdp/libipm.so
 %{_libdir}/xrdp/libsesman.so
 %{_libdir}/xrdp/libvnc.so
 %{_libdir}/xrdp/libxup.so
