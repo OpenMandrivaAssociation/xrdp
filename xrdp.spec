@@ -14,10 +14,8 @@ Source4:   openssl.conf
 Patch0:    xrdp-0.9.9-sesman.patch
 Patch1:    xrdp-0.9.9-xrdp-ini.patch
 Patch2:    xrdp-0.9.4-service.patch
-#Patch3:    xrdp-0.9.2-setpriv.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
-#Patch6:    make-fix.patch
 
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xfixes)
@@ -152,7 +150,7 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 
 
 %files
-%doc COPYING *.txt
+%doc COPYING
 %dir %{_libdir}/xrdp
 %dir %{_sysconfdir}/xrdp
 %dir %{_sysconfdir}/xrdp/pulse
@@ -163,7 +161,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %config(noreplace) %{_sysconfdir}/logrotate.d/xrdp
 %config(noreplace) %{_sysconfdir}/sysconfig/xrdp
 %config(noreplace) %{_sysconfdir}/xrdp/sesman.ini
-%exclude %{_sysconfdir}/xrdp/xrdp.sh
 %exclude %ghost %{_sysconfdir}/xrdp/*.pem
 %exclude %ghost %{_sysconfdir}/xrdp/rsakeys.ini
 %{_sysconfdir}/xrdp/km*.ini
