@@ -1,12 +1,12 @@
-diff -Nru a/sesman/sesman.ini b/sesman/sesman.ini
---- a/sesman/sesman.ini	2018-12-25 05:49:32.000000000 +0100
-+++ b/sesman/sesman.ini	2018-12-26 06:21:31.333355288 +0100
-@@ -7,7 +7,7 @@
- ; Give in relative path to user's home directory
- UserWindowManager=startwm.sh
- ; Give in full path or relative path to /etc/xrdp
--DefaultWindowManager=startwm.sh
-+DefaultWindowManager=startwm-bash.sh
- ; Give in full path or relative path to /etc/xrdp
- ReconnectScript=reconnectwm.sh
- 
+diff -ruN xrdp-0.9.20-v/sesman/sesman.ini xrdp-0.9.20/sesman/sesman.ini
+--- xrdp-0.9.20-v/sesman/sesman.ini	2022-09-15 15:59:55.000000000 +1000
++++ xrdp-0.9.20/sesman/sesman.ini	2022-09-15 17:40:10.032704634 +1000
+@@ -111,7 +111,7 @@
+ ; CentOS 8              :  param=/usr/libexec/Xorg
+ ; FreeBSD (from 2022Q4) :  param=/usr/local/libexec/Xorg
+ ;
+-param=Xorg
++param=/usr/libexec/Xorg
+ ; Leave the rest parameters as-is unless you understand what will happen.
+ param=-config
+ param=xrdp/xorg.conf

@@ -1,8 +1,8 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.9.16
-Release:   3
+Version:   0.10.0
+Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
 URL:       http://www.xrdp.org/
@@ -14,10 +14,8 @@ Source4:   openssl.conf
 Patch0:    xrdp-0.9.9-sesman.patch
 Patch1:    xrdp-0.9.9-xrdp-ini.patch
 Patch2:    xrdp-0.9.4-service.patch
-#Patch3:    xrdp-0.9.2-setpriv.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
-Patch6:    make-fix.patch
 
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xfixes)
@@ -152,7 +150,7 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 
 
 %files
-%doc COPYING *.txt
+%doc COPYING
 %dir %{_libdir}/xrdp
 %dir %{_sysconfdir}/xrdp
 %dir %{_sysconfdir}/xrdp/pulse
@@ -163,7 +161,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %config(noreplace) %{_sysconfdir}/logrotate.d/xrdp
 %config(noreplace) %{_sysconfdir}/sysconfig/xrdp
 %config(noreplace) %{_sysconfdir}/xrdp/sesman.ini
-%exclude %{_sysconfdir}/xrdp/xrdp.sh
 %exclude %ghost %{_sysconfdir}/xrdp/*.pem
 %exclude %ghost %{_sysconfdir}/xrdp/rsakeys.ini
 %{_sysconfdir}/xrdp/km*.ini
@@ -171,6 +168,9 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_sysconfdir}/xrdp/xrdp_keyboard.ini
 %{_libexecdir}/xrdp/startwm*.sh
 %{_libexecdir}/xrdp/reconnectwm.sh
+%{_libexecdir}/xrdp/waitforx
+%{_libexecdir}/xrdp/xrdp-sesexec
+%{_bindir}/xrdp-dumpfv1
 %{_bindir}/xrdp-genkeymap
 %{_bindir}/xrdp-sesadmin
 %{_bindir}/xrdp-keygen
@@ -187,12 +187,18 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_datadir}/xrdp/ad24b.bmp
 %{_datadir}/xrdp/xrdp24b.bmp
 %{_datadir}/xrdp/xrdp_logo.bmp
+%{_datadir}/xrdp/README.logo
+%{_datadir}/xrdp/sans-18.fv1
+%{_datadir}/xrdp/xrdp_logo.png
 %{_mandir}/man5/*
 %{_mandir}/man8/*
 %{_mandir}/man1/*
 #% {_libdir}/lib*.so.*
 %{_libdir}/xrdp/lib*.so.*
 %{_libdir}/xrdp/libmc.so
+%{_libdir}/xrdp/libtoml.so
+%{_libdir}/xrdp/libipm.so*
+%{_libdir}/xrdp/libsesman.so
 %{_libdir}/xrdp/libvnc.so
 %{_libdir}/xrdp/libxup.so
 %{_sysconfdir}/xrdp/pulse/default.pa
