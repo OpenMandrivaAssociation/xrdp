@@ -5,7 +5,7 @@ Version:   0.10.0
 Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
-URL:       http://www.xrdp.org/
+URL:       https://www.xrdp.org/
 Source0:   https://github.com/neutrinolabs/xrdp/releases/download/v%{version}/xrdp-%{version}.tar.gz
 Source1:   xrdp-sesman.pamd
 Source2:   xrdp.sysconfig
