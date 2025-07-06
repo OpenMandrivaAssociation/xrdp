@@ -1,16 +1,6 @@
---- xrdp-0.10.0-beta.1/instfiles/xrdp.service.in.o	2024-03-10 02:06:29.000000000 +1100
-+++ xrdp-0.10.0-beta.1/instfiles/xrdp.service.in	2024-03-11 14:10:31.607973918 +1100
-@@ -2,7 +2,7 @@
- Description=xrdp daemon
- Documentation=man:xrdp(8) man:xrdp.ini(5)
- Requires=xrdp-sesman.service
--After=network.target xrdp-sesman.service
-+After=xrdp-sesman.service
- 
- [Service]
- Type=exec
---- xrdp-0.10.0-beta.1/instfiles/xrdp-sesman.service.in.o	2024-03-11 14:14:12.510062559 +1100
-+++ xrdp-0.10.0-beta.1/instfiles/xrdp-sesman.service.in	2024-03-11 14:11:27.817255389 +1100
+diff -up xrdp-0.10.4/instfiles/xrdp-sesman.service.in.3~ xrdp-0.10.4/instfiles/xrdp-sesman.service.in
+--- xrdp-0.10.4/instfiles/xrdp-sesman.service.in.3~	2025-07-02 04:22:36.000000000 +0200
++++ xrdp-0.10.4/instfiles/xrdp-sesman.service.in	2025-07-07 00:18:40.044006130 +0200
 @@ -1,7 +1,8 @@
  [Unit]
  Description=xrdp session manager
@@ -21,3 +11,15 @@
  StopWhenUnneeded=true
  BindsTo=xrdp.service
  
+diff -up xrdp-0.10.4/instfiles/xrdp.service.in.3~ xrdp-0.10.4/instfiles/xrdp.service.in
+--- xrdp-0.10.4/instfiles/xrdp.service.in.3~	2025-07-02 04:22:36.000000000 +0200
++++ xrdp-0.10.4/instfiles/xrdp.service.in	2025-07-07 00:33:58.685953673 +0200
+@@ -2,7 +2,7 @@
+ Description=xrdp daemon
+ Documentation=man:xrdp(8) man:xrdp.ini(5)
+ Requires=xrdp-sesman.service
+-After=network-online.target xrdp-sesman.service
++After=xrdp-sesman.service
+ 
+ [Service]
+ Type=exec

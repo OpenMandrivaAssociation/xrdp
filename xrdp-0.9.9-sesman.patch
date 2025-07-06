@@ -1,6 +1,6 @@
-diff -ruN xrdp-0.9.20-v/sesman/sesman.ini xrdp-0.9.20/sesman/sesman.ini
---- xrdp-0.9.20-v/sesman/sesman.ini	2022-09-15 15:59:55.000000000 +1000
-+++ xrdp-0.9.20/sesman/sesman.ini	2022-09-15 17:40:10.032704634 +1000
+diff -ruN xrdp-0.9.20-v/sesman/sesman.ini.in xrdp-0.9.20/sesman/sesman.ini.in
+--- xrdp-0.9.20-v/sesman/sesman.ini.in	2022-09-15 15:59:55.000000000 +1000
++++ xrdp-0.9.20/sesman/sesman.ini.in	2022-09-15 17:40:10.032704634 +1000
 @@ -111,7 +111,7 @@
  ; CentOS 8              :  param=/usr/libexec/Xorg
  ; FreeBSD (from 2022Q4) :  param=/usr/local/libexec/Xorg

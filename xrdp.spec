@@ -1,7 +1,7 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.10.0
+Version:   0.10.4
 Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
@@ -163,12 +163,14 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %config(noreplace) %{_sysconfdir}/xrdp/sesman.ini
 %exclude %ghost %{_sysconfdir}/xrdp/*.pem
 %exclude %ghost %{_sysconfdir}/xrdp/rsakeys.ini
+%{_sysconfdir}/xrdp/gfx.toml
 %{_sysconfdir}/xrdp/km*.ini
 %{_sysconfdir}/xrdp/openssl.conf
 %{_sysconfdir}/xrdp/xrdp_keyboard.ini
 %{_libexecdir}/xrdp/startwm*.sh
 %{_libexecdir}/xrdp/reconnectwm.sh
 %{_libexecdir}/xrdp/waitforx
+%{_libexecdir}/xrdp/xrdp-droppriv
 %{_libexecdir}/xrdp/xrdp-sesexec
 %{_bindir}/xrdp-dumpfv1
 %{_bindir}/xrdp-genkeymap
@@ -189,6 +191,7 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_datadir}/xrdp/xrdp_logo.bmp
 %{_datadir}/xrdp/README.logo
 %{_datadir}/xrdp/sans-18.fv1
+%{_datadir}/xrdp/xrdp-chkpriv
 %{_datadir}/xrdp/xrdp_logo.png
 %{_mandir}/man5/*
 %{_mandir}/man8/*

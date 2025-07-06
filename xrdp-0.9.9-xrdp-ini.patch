@@ -1,40 +1,48 @@
---- xrdp-0.10.0-beta.1/xrdp/xrdp.ini.o	2024-03-11 13:59:30.562337578 +1100
-+++ xrdp-0.10.0-beta.1/xrdp/xrdp.ini	2024-03-11 14:01:38.713716136 +1100
-@@ -231,13 +231,13 @@ xrdpvr=true
+diff -up xrdp-0.10.4/xrdp/xrdp.ini.in.2~ xrdp-0.10.4/xrdp/xrdp.ini.in
+--- xrdp-0.10.4/xrdp/xrdp.ini.in.2~	2025-07-02 04:22:36.000000000 +0200
++++ xrdp-0.10.4/xrdp/xrdp.ini.in	2025-07-07 00:18:19.669097332 +0200
+@@ -240,17 +240,17 @@ xrdpvr=true
  ; Some session types such as Xorg and Xvnc start a display server.
  ; Startup command-line parameters for the display server are configured
  ; in sesman.ini. See and configure also sesman.ini.
 -[Xorg]
 -name=Xorg
--lib=libxup.so
+-lib=libxup.@lib_extension@
 -username=ask
 -password=ask
 -port=-1
 -code=20
 +#[Xorg]
 +#name=Xorg
-+#lib=libxup.so
++#lib=libxup.@lib_extension@
 +#username=ask
 +#password=ask
 +#port=-1
 +#code=20
+ ; Frame capture interval (milliseconds)
+-h264_frame_interval=16
+-rfx_frame_interval=32
+-normal_frame_interval=40
++#h264_frame_interval=16
++#rfx_frame_interval=32
++#normal_frame_interval=40
  
  [Xvnc]
  name=Xvnc
-@@ -259,13 +259,13 @@ port=-1
+@@ -286,13 +286,13 @@ port=-1
  ; Generic VNC Proxy
  ; Tailor this to specific hosts and VNC instances by specifying an ip
  ; and port and setting a suitable name.
 -[vnc-any]
 -name=vnc-any
--lib=libvnc.so
+-lib=libvnc.@lib_extension@
 -ip=ask
 -port=ask5900
 -username=na
 -password=ask
 +#[vnc-any]
 +#name=vnc-any
-+#lib=libvnc.so
++#lib=libvnc.@lib_extension@
 +#ip=ask
 +#port=ask5900
 +#username=na
