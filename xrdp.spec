@@ -17,6 +17,11 @@ Patch2:    xrdp-0.9.4-service.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xfixes)
 BuildRequires: pkgconfig(xrandr)
