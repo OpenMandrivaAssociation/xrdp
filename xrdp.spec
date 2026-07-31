@@ -1,8 +1,8 @@
 Summary:   Open source remote desktop protocol (RDP) server
 Name:      xrdp
 Epoch:     1
-Version:   0.10.6
-Release:   2
+Version:   0.10.6.1
+Release:   1
 License:   ASL 2.0
 Group:     Networking/Remote access
 URL:       https://www.xrdp.org/
@@ -11,8 +11,8 @@ Source1:   xrdp-sesman.pamd
 Source2:   xrdp.sysconfig
 Source3:   xrdp.logrotate
 Source4:   openssl.conf
-Patch0:    xrdp-0.9.9-sesman.patch
-Patch1:    xrdp-0.9.9-xrdp-ini.patch
+# dropped (no longer applies): Patch0:    xrdp-0.9.9-sesman.patch
+# dropped (no longer applies): Patch1:    xrdp-0.9.9-xrdp-ini.patch
 Patch2:    xrdp-0.9.4-service.patch
 Patch4:    xrdp-0.9.10-scripts-libexec.patch
 Patch5:    xrdp-0.9.6-script-interpreter.patch
