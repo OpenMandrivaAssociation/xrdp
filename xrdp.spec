@@ -29,7 +29,7 @@ BuildRequires: openssl
 BuildRequires: lame-devel
 BuildRequires: pam-devel
 BuildRequires: pkgconfig(libjpeg)
-BuildRequires: pkgconfig(fuse)
+BuildRequires: pkgconfig(fuse3)
 BuildRequires: pkgconfig(openssl) >= 1.1
 BuildRequires: pkgconfig(opus)
 BuildRequires: pkgconfig(pixman-1)
