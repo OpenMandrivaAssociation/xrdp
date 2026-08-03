@@ -158,7 +158,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %doc COPYING
 %dir %{_libdir}/xrdp
 %dir %{_sysconfdir}/xrdp
-%dir %{_sysconfdir}/xrdp/pulse
 %dir %{_datadir}/xrdp
 %dir %{_libexecdir}/xrdp
 %config(noreplace) %{_sysconfdir}/xrdp/xrdp.ini
@@ -209,9 +208,6 @@ chmod 400 %{_sysconfdir}/xrdp/key.pem
 %{_libdir}/xrdp/libsesman.so
 %{_libdir}/xrdp/libvnc.so
 %{_libdir}/xrdp/libxup.so
-%{_sysconfdir}/xrdp/pulse/default.pa
-%{_unitdir}/xrdp-sesman.service
-%{_unitdir}/xrdp.service
 %ghost %{_localstatedir}/log/xrdp.log
 %ghost %{_localstatedir}/log/xrdp-sesman.log
 %attr(0600,root,root) %verify(not size md5 mtime) %{_sysconfdir}/xrdp/rsakeys.ini
